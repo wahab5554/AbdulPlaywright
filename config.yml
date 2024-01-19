@@ -1,0 +1,9 @@
+'current_execution_browser':'chrome'
+'env':
+  'dev':
+    'url':"https://d1vlwjq7xwhk3h.cloudfront.net/"
+  'stage':
+    'url':"https://d2h2o6vajhnplv.cloudfront.net"
+  'prod':
+    'url':"https://xpressfeedprime.marketplace.spglobal.com/"
+'current_execution_env':'dev'
