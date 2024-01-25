@@ -9,7 +9,7 @@ from pytest_bdd import *
 
 
 def test_visit_youtube(page,browser_type):
-    browser=browser_type.launch(headless=False,slow_mo=6000)
+    browser=browser_type.launch(headless=True,slow_mo=6000)
     page=browser.new_page()
     page.goto("https://youtube.com")
     browser.close()
