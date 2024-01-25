@@ -1,8 +1,5 @@
 
-from playwright.sync_api import expect, sync_playwright
-import re
-
-from pytest_playwright.pytest_playwright import browser_type, page
+from playwright.sync_api import sync_playwright
 
 
 class PlaywrightUI:

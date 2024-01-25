@@ -1,7 +1,5 @@
 from pytest_bdd import *
-
-from Features.Forms.PlaywrightUI import PlaywrightUI
-
+from features.forms.playwrightui import PlaywrightUI
 obj_playwrightui=PlaywrightUI(browser_type="firefox")
 
 @scenario('UI/Validate_prime.feature',
