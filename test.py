@@ -16,7 +16,7 @@ def test_visit_youtube(page,browser_type):
     breakpoint()
 
 def test_has_title(page,browser_type):
-    browser = browser_type.launch(headless=False, slow_mo=6000)
+    browser = browser_type.launch(headless=True, slow_mo=6000)
     page = browser.new_page()
     page.goto("https://playwright.dev/")
     page.get_by_placeholder("Email, phone, or Skype").click()
