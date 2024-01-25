@@ -1,0 +1,6 @@
+# requirements.txt
+
+# Playwright package
+playwright==1.40.o
+
+ 
