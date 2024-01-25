@@ -1,6 +1,6 @@
 # requirements.txt
 
 # Playwright package
-playwright==1.40.o
+playwright==1.40.0
 
- 
+
