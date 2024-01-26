@@ -4,11 +4,11 @@ obj_playwrightui=PlaywrightUI(browser_type="firefox")
 
 
 
-@scenario('UI/Validate_prime.feature',
+@scenario('Validate_prime.feature',
           'Verify user is able to create dataset')
 def test_verify_prime():
     """Verify user is able to create dataset"""
-@scenario('UI/Validate_prime.feature',
+@scenario('Validate_prime.feature',
           'Verify title for playwright')
 def test_verify_playwright():
     """Verify title for playwright"""
