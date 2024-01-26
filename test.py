@@ -18,4 +18,4 @@ def test_has_title(page,browser_type):
     page.title()
 
 
-    assert page.title()=='Fast and reliable end-to-end testing for modern web apps | Playwright'
+    assert page.title()=='Fast and reliable end-to-end testing for modern web apps \ Playwright'

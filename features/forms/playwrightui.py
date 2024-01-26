@@ -13,3 +13,5 @@ class PlaywrightUI:
             self.page = browser.new_page()
             self.page.goto(url)
 
+    def validate_page_title(self, pstr_title):
+        assert self.page.title() == pstr_title

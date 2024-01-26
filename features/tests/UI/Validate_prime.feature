@@ -9,3 +9,10 @@ Feature: Xpressfeed prime platform dataset validation
     Given User is login to the prime platform
     When User navigates to Dataset menu option
 
+
+  Scenario Outline: Verify title for playwright
+    When User lands on <url>
+    Then User must see <title>
+    Examples:
+      | url | title |
+      | a   | b     |
