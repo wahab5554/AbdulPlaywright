@@ -11,13 +11,13 @@ class ConfigurationManager:
 
 
     def __init__(self):
-        global obj_config
+
         global str_environment
         global str_environment_type
+        self.obj_config=self.read_base_config_file()
+        str_environment = self.obj_config['execution']['current_exec']
+        str_browser= self.obj_config['execution']['browser']
 
-        str_environment = obj_config.base_config['execution_environment']
-        str_environment_type = obj_config.base_config['environment_type']
-        self.features_dir_path = self.get_features_dirpath()
 
     def get_config_filepath(self):
         """
@@ -40,7 +40,14 @@ class ConfigurationManager:
         :return: String
         """
         try:
-            return os.path.dirname(self.features_dir_path)
+            current_directory = os.getcwd()
+
+            # Get the parent directory
+            parent_directory = os.path.dirname(current_directory)
+            parent_directory = os.path.dirname(parent_directory)
+            parent_directory_main = os.path.dirname(parent_directory)
+            print("Parent Directory of Project:", parent_directory)
+            return parent_directory_main
         except Exception as e:
             print("Error in get_project_path method-->" + str(e))
     def read_base_config_file(self):
@@ -57,6 +64,11 @@ class ConfigurationManager:
                 try:
                     with open(self.get_config_filepath(), 'r') as config_yml:
                         config = yaml.safe_load(config_yml)
+
+
+
+
+
                 except Exception as e:
                     pass
                 count = count + 1

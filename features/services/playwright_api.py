@@ -9,7 +9,7 @@ class PlaywrightAPI:
 
 
 
-    def reques_build(self, url):
+    def request_build(self, url):
          with sync_playwright() as p:
             context=p.request.new_context().get(url=url)
             self.response=context
