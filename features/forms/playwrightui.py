@@ -1,7 +1,7 @@
 
 from playwright.sync_api import sync_playwright,Playwright
 from features.Config.configmanager import ConfigurationManager
-from features.tests.UI.test_validate_sauce_demo import playwright
+
 
 
 class PlaywrightUI:

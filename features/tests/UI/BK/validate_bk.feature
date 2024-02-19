@@ -1,4 +1,4 @@
-@xf @team_cubivue @release_sprint_24.02.13
+@team_cubivue @bk @release_sprint_24.02.13
 Feature: BK Cubivue product validation
   As an SQA
   I want to verify BK platform functions are working
