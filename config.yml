@@ -1,9 +1,20 @@
 dev:
-  -url: www.google.com
+  bk:
+    url: https://qa-bk.cubivue.com/
+    user: 'hs'
+    pwd: '1234'
+  ekl:
+    url:
+    user:
+    pwd:
+
 Qa:
-  -url: https://playwright.dev/
+  url: https://playwright.dev/
 prod:
-  -url: https://github.com/
+  url: https://github.com/
 execution:
   current_exec: dev
+  current_module: bk
   browser: chromium
+  screen_shot: False
+  headless: True

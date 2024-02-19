@@ -15,8 +15,7 @@ class ConfigurationManager:
         global str_environment
         global str_environment_type
         self.obj_config=self.read_base_config_file()
-        str_environment = self.obj_config['execution']['current_exec']
-        str_browser= self.obj_config['execution']['browser']
+
 
 
     def get_config_filepath(self):
@@ -46,8 +45,9 @@ class ConfigurationManager:
             parent_directory = os.path.dirname(current_directory)
             parent_directory = os.path.dirname(parent_directory)
             parent_directory_main = os.path.dirname(parent_directory)
-            print("Parent Directory of Project:", parent_directory)
-            return parent_directory_main
+            parent_directory_proj = os.path.dirname(parent_directory_main)
+
+            return parent_directory_proj
         except Exception as e:
             print("Error in get_project_path method-->" + str(e))
     def read_base_config_file(self):

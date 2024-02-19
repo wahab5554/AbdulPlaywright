@@ -6,9 +6,6 @@ class PlaywrightAPI:
     def __init__(self):
         self.response = None
 
-
-
-
     def request_build(self, url):
          with sync_playwright() as p:
             context=p.request.new_context().get(url=url)
