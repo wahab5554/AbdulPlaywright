@@ -17,4 +17,5 @@ def login():
 
 @then('I must see success response in job status')
 def validate_response():
-    obj_playwright_api.validate_job_status()
+    url = 'https://qa-bk-api.cubivue.com/api/Job/GetJobsStatusCounts?diomNr=null'
+    obj_playwright_api.validate_job_status(url)

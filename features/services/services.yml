@@ -1,0 +1,4 @@
+Kinnarps_get_countries:
+  Method: GET
+  Url:
+  headers:

@@ -45,9 +45,9 @@ class ConfigurationManager:
             parent_directory = os.path.dirname(current_directory)
             parent_directory = os.path.dirname(parent_directory)
             parent_directory_main = os.path.dirname(parent_directory)
-            parent_directory_proj = os.path.dirname(parent_directory_main)
+            #parent_directory_proj = os.path.dirname(parent_directory_main)
 
-            return parent_directory_proj
+            return parent_directory_main
         except Exception as e:
             print("Error in get_project_path method-->" + str(e))
     def read_base_config_file(self):

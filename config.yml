@@ -3,10 +3,16 @@ dev:
     url: https://qa-bk.cubivue.com/
     user: 'hs'
     pwd: '1234'
+    login_api: "https://qa-bk-api.cubivue.com/api/Account/Login"
   ekl:
     url:
     user:
     pwd:
+  kinnarps:
+    url: https://tptest.kinnarps.com/
+    user: Wahab
+    pwd: qwe123
+    login_api: "https://tptest-api.kinnarps.com/api/Account/Login"
 
 Qa:
   url: https://playwright.dev/
@@ -14,7 +20,7 @@ prod:
   url: https://github.com/
 execution:
   current_exec: dev
-  current_module: bk
+  current_module: kinnarps
   browser: chromium
   screen_shot: False
-  headless: True
+  headless: False
