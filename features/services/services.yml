@@ -1,4 +1,38 @@
 Kinnarps_get_countries:
   Method: GET
-  Url:
-  headers:
+  endpoint: "/api/Metadata/GetCountries"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  str_auth_type: Basic
+  payload: None
+
+
+Kinnarps_post_orders:
+  Method: POST
+  endpoint: "/api/Order/Get"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'post_orders.json'
+
+
+Kinnarps_get_regions:
+  Method: GET
+  endpoint: "/api/Metadata/GetRegions"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+
+Kinnarps_get_terminal:
+  Method: GET
+  endpoint: "/api/Metadata/GetLoadingTerminals"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_views:
+  Method: GET
+  endpoint: "/api/Metadata/GetViews"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None

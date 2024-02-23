@@ -1,6 +1,6 @@
 from pytest_bdd import *
 from features.services.playwright_api import PlaywrightAPI
-
+from pytest_bdd.parsers import parse
 obj_playwright_api = PlaywrightAPI()
 
 
@@ -15,7 +15,7 @@ def login():
     obj_playwright_api.login()
 
 
-@then('I must see success response in job status')
-def validate_response():
-    url='https://tptest-api.kinnarps.com/api/Metadata/GetCountries'
-    obj_playwright_api.validate_job_status(url)
+@then(parse('I must see success response from {endpoints}'),converters=dict(endpoints=str))
+def validate_response(endpoints):
+
+    obj_playwright_api.validate_request(endpoints)

@@ -52,11 +52,27 @@ class PlaywrightUI:
 
 
 
+
         except Exception as e:
             print("An error occurred:", str(e))
 
 
+    def login_kinnarp(self):
+        try:
+                self.page = self.browser.new_page()
+                self.page.goto(self.base_url)
+                self.page.get_by_placeholder("Ange användarnamn").click()
+                self.page.get_by_placeholder("Ange användarnamn").fill(self.user)
+                self.page.get_by_placeholder("Ange användarnamn").press("Tab")
+                self.page.get_by_placeholder("Skriv in lösenord").fill(self.pwd)
+                self.page.get_by_role("button", name="Logga in").click()
 
+
+
+
+
+        except Exception as e:
+            print("An error occurred:", str(e))
     def validate_page_title(self, pstr_title):
         try:
 
@@ -90,6 +106,44 @@ class PlaywrightUI:
             dashboard_element = self.page.locator("xpath=//a[text()='Dashboard']")
             dashboard_text = dashboard_element.text_content()
             assert dashboard_text=="Dashboard"
+
+
+
+
+        except Exception as e:
+            print("An error occurred:", str(e))
+        finally:
+
+            print("Exiting the try-except block")
+
+    def click_route_plan(self):
+        try:
+            self.page.get_by_label("Profile menu link").click()
+            self.page.get_by_role("img", name="Engelska").click()
+
+            self.page.get_by_role("link", name="Route Plan").click()
+
+
+
+
+
+
+
+        except Exception as e:
+            print("An error occurred:", str(e))
+        finally:
+
+            print("Exiting the try-except block")
+
+    def validate_route(self):
+        try:
+            self.page.get_by_label("Profile menu link").click()
+            self.page.get_by_role("img", name="Engelska").click()
+
+            self.page.get_by_role("link", name="Route Plan").click()
+
+
+
 
 
 

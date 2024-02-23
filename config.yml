@@ -1,6 +1,6 @@
 dev:
   bk:
-    url: https://qa-bk.cubivue.com/
+    url: "https://qa-bk.cubivue.com/"
     user: 'hs'
     pwd: '1234'
     login_api: "https://qa-bk-api.cubivue.com/api/Account/Login"
@@ -9,10 +9,10 @@ dev:
     user:
     pwd:
   kinnarps:
-    url: https://tptest.kinnarps.com/
+    url: "https://tptest.kinnarps.com/"
+    base_url: "https://tptest-api.kinnarps.com"
     user: Wahab
     pwd: qwe123
-    login_api: "https://tptest-api.kinnarps.com/api/Account/Login"
 
 Qa:
   url: https://playwright.dev/

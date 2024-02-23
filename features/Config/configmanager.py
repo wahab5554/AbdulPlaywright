@@ -18,6 +18,18 @@ class ConfigurationManager:
 
 
 
+    def get_service_config_filepath(self,pstr_service_file):
+        """
+        Description:
+            |  This method fetches path of config.yml
+
+        :return: String
+        """
+        try:
+            str_filepath = self.get_service_project_path() + os.path.sep + pstr_service_file
+            return str_filepath
+        except Exception as e:
+            print("Error in get_config_filepath method-->" + str(e))
     def get_config_filepath(self):
         """
         Description:
@@ -50,6 +62,7 @@ class ConfigurationManager:
             return parent_directory_main
         except Exception as e:
             print("Error in get_project_path method-->" + str(e))
+
     def read_base_config_file(self):
         """
         Description:
@@ -63,6 +76,35 @@ class ConfigurationManager:
             while config is None and count < 30:
                 try:
                     with open(self.get_config_filepath(), 'r') as config_yml:
+                        config = yaml.safe_load(config_yml)
+
+
+
+
+
+                except Exception as e:
+                    pass
+                count = count + 1
+                time.sleep(1)
+            if config is None:
+                raise Exception("Error Occurred while reading a config file")
+            return config
+        except Exception as e:
+            print("Error in read_base_config_file method-->" + str(e))
+            return None
+    def read_service_base_config_file(self):
+        """
+        Description:
+            |  This method reads base config.yml file and loads the content into a dictionary object.
+
+        :return: Dictionary
+        """
+        try:
+            count = 0
+            config = None
+            while config is None and count < 30:
+                try:
+                    with open(self.get_service_config_filepath(), 'r') as config_yml:
                         config = yaml.safe_load(config_yml)
 
 
@@ -101,3 +143,51 @@ class ConfigurationManager:
             return str_currentdir_path
         except Exception as e:
           print("Error in get_features_dirpath method-->" + str(e))
+
+    def read_base_service_config_file(self,pstr_service):
+        """
+        Description:
+            |  This method reads base service config.yml file and loads the content into a dictionary object.
+
+        :return: Dictionary
+        """
+        try:
+            count = 0
+            config = None
+            while config is None and count < 30:
+                try:
+                    with open(self.get_service_config_filepath(pstr_service), 'r') as config_yml:
+                        config = yaml.safe_load(config_yml)
+
+
+
+
+
+                except Exception as e:
+                    pass
+                count = count + 1
+                time.sleep(1)
+            if config is None:
+                raise Exception("Error Occurred while reading a config file")
+            return config
+        except Exception as e:
+            print("Error in read_base_config_file method-->" + str(e))
+            return None
+
+    def get_service_project_path(self):
+        """
+        Description:
+            |  This method fetches path of the root Project folder
+
+        :return: String
+        """
+        try:
+            current_directory = os.getcwd()
+
+            # Get the parent directory
+            parent_directory = os.path.dirname(current_directory)
+            parent_directory = os.path.dirname(parent_directory)
+            parent_directory=parent_directory+"\\services"
+            return parent_directory
+        except Exception as e:
+            print("Error in get_project_path method-->" + str(e))
