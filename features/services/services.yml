@@ -187,3 +187,16 @@ Kinnarps_post_remove_orders_bucket:
   headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
   payload: 'remove_orders_bucket.json'
 
+Kinnarps_get_vehicles:
+  Method: GET
+  endpoint: "/api/Metadata/GetVehicles"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_post_route_map:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetRouteMap"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'route_map.json'

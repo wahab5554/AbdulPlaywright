@@ -22,7 +22,7 @@ Feature: Kinnarps Cubivue product validation
       | Kinnarps_get_planned_orders           |
       | Kinnarps_post_get_bucket_by_id        |
       | Kinnarps_post_get_loading_ramps       |
-      | Kinnarps_get_route_details            |
+      | Kinnarps_post_route_details           |
       | Kinnarps_post_route_activity_timeline |
       | Kinnarps_post_route_container_details |
       | Kinnarps_get_vehicles                 |
@@ -35,6 +35,7 @@ Feature: Kinnarps Cubivue product validation
       | Kinnarps_get_employee_types           |
       | Kinnarps_post_users                   |
       | Kinnarps_post_bucket_templates        |
+      | Kinnarps_post_route_map               |
 
   @priority_high @automated @api @regression
   Scenario Outline: Verify Add Order to Bucket in Order Bank
@@ -47,3 +48,15 @@ Feature: Kinnarps Cubivue product validation
     Examples:
       | endpoints                  | orderid    | bucketid  |
       | Kinnarps_add_orders_bucket | 1090060409 | 318244937 |
+
+
+  @priority_high @automated @api @regression
+  Scenario Outline: Verify Buckets data is fetched according to weeks filter
+    Given User is login to the kinnarps platform
+    When I select <week> from top menu
+    Then I must see buckets are displayed according to <week>
+    Examples:
+      | week |
+      | 8    |
+      | 9    |
+      | 7    |

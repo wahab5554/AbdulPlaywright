@@ -13,6 +13,11 @@ def test_validate_kinnarps_api():
           'Verify Add Order to Bucket in Order Bank')
 def test_validate_add_order_bucket():
     """Verify Add Order to Bucket in Order Bank"""
+
+@scenario('validate_kinnarps_api.feature',
+          'Verify Buckets data is fetched according to weeks filter')
+def test_validate_buckets_week_data():
+    """Verify Buckets data is fetched according to weeks filter"""
 @given('User is login to the kinnarps platform')
 def login():
     obj_playwright_api.login()
@@ -28,6 +33,13 @@ def validate_response(endpoints):
 def validate_response(orderid,bucketid,endpoints):
 
     payload=obj_playwright_api.modify_payload(orderid,bucketid,endpoints)
+    obj_playwright_api.validate_request(endpoints,payload=payload)
+
+
+@when(parse('I select {week} from top menu'),converters=dict(week=int))
+def validate_week(week):
+    endpoints='Kinnarps_post_buckets'
+    payload=obj_playwright_api.weeks_payload(week,endpoints)
     obj_playwright_api.validate_request(endpoints,payload=payload)
 
 @then(parse('I must see {orderid} is added in {bucketid} in buckets'),converters=dict(orderid=int,bucketid=int))
@@ -58,4 +70,10 @@ def validate_response(orderid):
     obj_playwright_api.validate_request(end_point)
 
     obj_playwright_api.validate_unplanned_orders(orderid)
+
+
+@then(parse('I must see buckets are displayed according to {week}'),converters=dict(week=int))
+def validate_response(week):
+
+    obj_playwright_api.validate_week_data(week)
 

@@ -46,6 +46,7 @@ class PlaywrightAPI:
             else:
                 self.auth_token=json.loads(self.response)['access_token']
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
     def validate_request(self,pstr_service,**kwargs):
         try:
@@ -77,21 +78,23 @@ class PlaywrightAPI:
 
             assert self.context.ok
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
 
     def get_payload(self,pstr_payload):
         try:
+            if pstr_payload!='None':
+                current_directory = os.path.dirname(__file__)
 
-            current_directory = os.path.dirname(__file__)
+                file_path = os.path.join(current_directory+'\\payloads', pstr_payload)
 
-            file_path = os.path.join(current_directory+'\\payloads', pstr_payload)
-
-            # Open the JSON file and load its contents
-            with open(file_path, 'r') as file:
-                data = json.load(file)
-            return data
+                # Open the JSON file and load its contents
+                with open(file_path, 'r') as file:
+                    data = json.load(file)
+                return data
 
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
     def modify_payload(self,pint_orderid,pint_bucketid,pstr_service):
         try:
@@ -107,6 +110,23 @@ class PlaywrightAPI:
 
 
         except Exception as e:
+            assert False
+            print("An error occurred:", str(e))
+    def weeks_payload(self,pint_week,pstr_service):
+        try:
+
+            self.obj_service_config[pstr_service]
+
+            payload = self.obj_service_config[pstr_service]['payload']
+            payload = self.get_payload(payload)
+            payload['weekOfYear'][0]['week']=pint_week
+
+            return payload
+
+
+
+        except Exception as e:
+            assert False
             print("An error occurred:", str(e))
 
     def modify_payload_bucket(self,pint_bucketid,pstr_service):
@@ -123,6 +143,7 @@ class PlaywrightAPI:
 
 
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
 
     def validate_order(self, pint_orderid):
@@ -136,12 +157,13 @@ class PlaywrightAPI:
 
 
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
 
     def validate_removed_order(self, pint_orderid):
         try:
 
-            if self.context.text()==[]:
+            if self.context.text()=='[]':
                 print("Bucket is empty")
                 assert True
             else:
@@ -150,6 +172,7 @@ class PlaywrightAPI:
 
 
         except Exception as e:
+            assert False
             print("An error occurred:", str(e))
     def validate_unplanned_orders(self, pint_orderid):
         try:
@@ -169,5 +192,25 @@ class PlaywrightAPI:
 
 
         except Exception as e:
-            return False
+            assert False
+            print("An error occurred:", str(e))
+    def validate_week_data(self, pint_week):
+        try:
+            resp=json.loads(self.context.text())
+            bool_flg=False
+            total_rec=len(resp)
+            for i in range(0,total_rec):
+                if resp[i]['weekNumber']==pint_week:
+                    print("week number matched in JSON response")
+
+                    bool_flg= True
+
+                else:
+                    bool_flg= False
+            assert bool_flg
+
+
+
+        except Exception as e:
+            assert False
             print("An error occurred:", str(e))
