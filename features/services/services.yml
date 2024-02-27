@@ -36,3 +36,154 @@ Kinnarps_get_views:
   queryparams: None
   headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
   payload: None
+
+Kinnarps_post_buckets:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetBuckets"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'post_buckets.json'
+
+
+Kinnarps_post_unplanned_orders:
+  Method: POST
+  endpoint: "/api/OrderBank/GetUnplannedOrders"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'post_unplanned_orders.json'
+
+
+Kinnarps_get_bucketlocationbyid:
+  Method: GET
+  endpoint: "/api/BucketPlan/GetBucketLocationsById?BucketId=318244937"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_planned_orders:
+  Method: GET
+  endpoint: "/api/Order/GetPlannedOrdersByBucketId?BucketId=331892786&SortBy=MovexId&SortDirection=asc"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+
+Kinnarps_post_get_bucket_by_id:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetBucketById"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'post_bucketid.json'
+
+Kinnarps_post_get_loading_ramps:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetLoadingRampsByRouteId"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'loading_ramp.json'
+
+Kinnarps_post_route_details:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetRouteDetails"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'route_details.json'
+
+Kinnarps_post_route_activity_timeline:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetRouteActivityTimeline"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'route_timeline.json'
+
+Kinnarps_post_route_container_details:
+  Method: POST
+  endpoint: "/api/RoutePlanner/GetContainerDetails"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'container_details.json'
+
+Kinnarps_get_containers:
+  Method: GET
+  endpoint: "/api/Metadata/GetContainers"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_container_types:
+  Method: GET
+  endpoint: "/api/Metadata/GetContainerTypes"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_employees:
+  Method: GET
+  endpoint: "/api/Metadata/GetEmployees"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_trailer_types:
+  Method: GET
+  endpoint: "/api/Metadata/GetTrailersTypes"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_transporation_types:
+  Method: GET
+  endpoint: "/api/Metadata/GetContainerTransportationTypes"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_vehicle_types:
+  Method: GET
+  endpoint: "/api/Metadata/GetVehicleTypes"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_get_employee_types:
+  Method: GET
+  endpoint: "/api/Metadata/GetEmployeeTypes"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_post_users:
+  Method: POST
+  endpoint: "/api/Account/GetUsers"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'post_users.json'
+
+Kinnarps_post_bucket_templates:
+  Method: POST
+  endpoint: "/api/BucketTemplate/GetBucketTemplates"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'bucket_template.json'
+
+Kinnarps_add_orders_bucket:
+  Method: POST
+  endpoint: "/api/OrderBank/AddOrderToBucket"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json, text/plain, */*' }
+  payload: 'add_order_bucket.json'
+
+Kinnarps_get_planned_orders_filter:
+  Method: GET
+  endpoint: "/api/Order/GetPlannedOrdersByBucketId?BucketId=<<bucketid>>&SortBy=MovexId&SortDirection=asc"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: None
+
+Kinnarps_post_remove_orders_bucket:
+  Method: POST
+  endpoint: "/api/Bucket/RemoveOrdersFromBucket"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'remove_orders_bucket.json'
+

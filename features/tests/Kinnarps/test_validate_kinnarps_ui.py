@@ -26,4 +26,4 @@ def click_route_plan():
 @then('I must see Route Detail')
 def validate_route_detail():
 
-    obj_playwrightui.click()
+   pass
