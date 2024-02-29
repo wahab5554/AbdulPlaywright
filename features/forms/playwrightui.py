@@ -1,7 +1,7 @@
 
 from playwright.sync_api import sync_playwright,Playwright
 from features.Config.configmanager import ConfigurationManager
-
+from features.forms.locators import RoutePlanlocators
 
 
 class PlaywrightUI:
@@ -42,6 +42,7 @@ class PlaywrightUI:
     def login(self):
         try:
                 self.page = self.browser.new_page()
+
                 self.page.goto(self.base_url)
                 self.page.get_by_placeholder("Username").click()
                 self.page.get_by_placeholder("Username").fill(self.user)
@@ -60,6 +61,8 @@ class PlaywrightUI:
     def login_kinnarp(self):
         try:
                 self.page = self.browser.new_page()
+                width, height = 1500, 800
+                self.page.set_viewport_size({"width": width, "height": height})
                 self.page.goto(self.base_url)
                 self.page.get_by_placeholder("Ange användarnamn").click()
                 self.page.get_by_placeholder("Ange användarnamn").fill(self.user)
@@ -123,17 +126,10 @@ class PlaywrightUI:
 
             self.page.get_by_role("link", name="Route Plan").click()
 
-
-
-
-
-
-
         except Exception as e:
+            assert  False
             print("An error occurred:", str(e))
-        finally:
 
-            print("Exiting the try-except block")
 
     def validate_route(self):
         try:
@@ -143,13 +139,13 @@ class PlaywrightUI:
             self.page.get_by_role("link", name="Route Plan").click()
 
 
+        except Exception as e:
+            print("An error occurred:", str(e))
 
-
-
+    def validate_route_details(self):
+        try:
+            assert self.page.locator(RoutePlanlocators.ROUTE_DETAILS_TAB).text_content()=='Route Details'
 
 
         except Exception as e:
             print("An error occurred:", str(e))
-        finally:
-
-            print("Exiting the try-except block")

@@ -9,7 +9,9 @@ Feature: Kinnarps Cubivue product validation
   Scenario: Verify Route Plan Page
     Given User is login to the kinnarps platform
     When I Click on Route Plan bucket
-    Then I must see Route Detail
+    Then I must see Route Details Tab
     And I must see Map View
     And I must see Activity TimeLine
     And I must see Container Details
+
+

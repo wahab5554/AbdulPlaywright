@@ -11,8 +11,6 @@ from features.tests.BK.test_validate_bk import obj_playwrightui
           'Verify Route Plan Page')
 def test_validate_kinnarps_route_plan():
     """Validate API end point"""
-
-
 @given('User is login to the kinnarps platform')
 def login():
     obj_playwrightui.login_kinnarp()
@@ -23,7 +21,7 @@ def click_route_plan():
 
     obj_playwrightui.click_route_plan()
 
-@then('I must see Route Detail')
+@then('I must see Route Details Tab')
 def validate_route_detail():
 
-   pass
+   obj_playwrightui.validate_route_details()

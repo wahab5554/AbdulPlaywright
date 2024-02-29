@@ -4,17 +4,17 @@ from pytest_bdd.parsers import parse
 obj_playwright_api = PlaywrightAPI()
 
 
-@scenario('validate_kinnarps_api.feature',
+@scenario('validate_kinnarps_order_bank_api.feature',
           'Verify Kinnarps page load end points')
 def test_validate_kinnarps_api():
     """Validate API end point"""
 
-@scenario('validate_kinnarps_api.feature',
+@scenario('validate_kinnarps_order_bank_api.feature',
           'Verify Add Order to Bucket in Order Bank')
 def test_validate_add_order_bucket():
     """Verify Add Order to Bucket in Order Bank"""
 
-@scenario('validate_kinnarps_api.feature',
+@scenario('validate_kinnarps_order_bank_api.feature',
           'Verify Buckets data is fetched according to weeks filter')
 def test_validate_buckets_week_data():
     """Verify Buckets data is fetched according to weeks filter"""
@@ -56,16 +56,21 @@ def validate_response(bucketid):
     payload = obj_playwright_api.modify_payload_bucket(bucketid, end_point)
     obj_playwright_api.validate_request(end_point,payload=payload)
 
+@then(parse('I remove {orderid} from Bucket plan {bucketid}'),converters=dict(orderid=int,bucketid=int))
+def validate_response(orderid,bucketid):
+    end_point="Kinnarps_post_remove_order"
+    payload = obj_playwright_api.modify_payload(orderid,bucketid, end_point)
+    obj_playwright_api.validate_request(end_point,payload=payload)
 
 @then(parse('I must not see {orderid} in {bucketid} in buckets'),converters=dict(orderid=int,bucketid=int))
-def validate_response(bucketid,orderid):
-    end_point="Kinnarps_get_planned_orders_filter"
+def validate_order_bucket(bucketid,orderid):
+    end_point = "Kinnarps_get_planned_orders_filter"
     obj_playwright_api.validate_request(end_point, filter=bucketid)
 
     obj_playwright_api.validate_removed_order(orderid)
 
 @then(parse('I must see {orderid} in unplanned orders'),converters=dict(orderid=int))
-def validate_response(orderid):
+def validate_unplanned_order(orderid):
     end_point="Kinnarps_post_unplanned_orders"
     obj_playwright_api.validate_request(end_point)
 

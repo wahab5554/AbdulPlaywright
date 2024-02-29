@@ -148,14 +148,18 @@ class PlaywrightAPI:
 
     def validate_order(self, pint_orderid):
         try:
+            resp = json.loads(self.context.text())
+            bool_flg = False
+            total_rec = len(resp)
+            for i in range(0, total_rec):
+                if resp[i]['id'] == pint_orderid:
+                    print("order found in unplanned list of orders")
 
-            if pint_orderid== json.loads(self.context.text())[0]['id']:
-             assert True
-            else:
-             assert False
-
-
-
+                    bool_flg = True
+                    break
+                else:
+                    bool_flg = False
+            assert bool_flg
         except Exception as e:
             assert False
             print("An error occurred:", str(e))
@@ -163,11 +167,22 @@ class PlaywrightAPI:
     def validate_removed_order(self, pint_orderid):
         try:
 
-            if self.context.text()=='[]':
-                print("Bucket is empty")
-                assert True
-            else:
+            try:
+                resp = json.loads(self.context.text())
+                bool_flg = False
+                total_rec = len(resp)
+                for i in range(0, total_rec):
+                    if resp[i]['id'] == pint_orderid:
+                        print("order found in planned list of orders")
+
+                        bool_flg = False
+
+                    else:
+                        bool_flg = True
+                assert bool_flg
+            except Exception as e:
                 assert False
+                print("An error occurred:", str(e))
 
 
 
@@ -208,6 +223,32 @@ class PlaywrightAPI:
                 else:
                     bool_flg= False
             assert bool_flg
+
+
+
+        except Exception as e:
+            assert False
+            print("An error occurred:", str(e))
+
+    def generate_payload_multiple_orderids(self,str_orderids,pint_bucketid):
+        try:
+
+            order_ids=str_orderids.split(',')
+
+            data = {
+                "orders": [],
+                "bucketId": pint_bucketid
+            }
+
+            for order_id in order_ids:
+                order = {
+                    "orderId": int(order_id),
+                    "isLocked": True
+                }
+                data["orders"].append(order)
+                payload = json.dumps(data, indent=4)
+
+            return payload
 
 
 

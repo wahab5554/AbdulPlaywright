@@ -200,3 +200,11 @@ Kinnarps_post_route_map:
   queryparams: None
   headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
   payload: 'route_map.json'
+
+
+Kinnarps_post_remove_order:
+  Method: POST
+  endpoint: "/api/OrderBank/RemoveOrderFromBucket"
+  queryparams: None
+  headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*' }
+  payload: 'add_order_bucket.json'

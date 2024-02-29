@@ -5,7 +5,7 @@ Feature: Kinnarps Cubivue product validation
   So that user can perform successfull delivery orders
 
 
-  @priority_high @automated @api @regression
+  @priority_high @automated @api @regression @sanity
   Scenario Outline: Verify Kinnarps page load end points
     Given User is login to the kinnarps platform
     Then I must see success response from <endpoints>
@@ -42,12 +42,12 @@ Feature: Kinnarps Cubivue product validation
     Given User is login to the kinnarps platform
     When I add <orderid> into <bucketid> using <endpoints>
     Then I must see <orderid> is added in <bucketid> in buckets
-    And I click on empty bucket for <bucketid>
+    And I remove <orderid> from Bucket plan <bucketid>
     And I must not see <orderid> in <bucketid> in buckets
     And I must see <orderid> in unplanned orders
     Examples:
       | endpoints                  | orderid    | bucketid  |
-      | Kinnarps_add_orders_bucket | 1090060409 | 318244937 |
+      | Kinnarps_add_orders_bucket | 1255679708 | 229644169 |
 
 
   @priority_high @automated @api @regression

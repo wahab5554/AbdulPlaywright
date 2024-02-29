@@ -1,4 +1,4 @@
-@team_cubivue @pakke @release_sprint_24.02.13
+@team_cubivue @dao @release_sprint_24.02.13
 Feature: Pakke Cubivue product validation
   As an SQA
   I want to verify Pakke platform functions are working
